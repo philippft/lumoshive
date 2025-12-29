@@ -5,36 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Portofolio Website</title>
+    <meta name="description" content="Portofolio website Philip, seorang Front-end Developer yang menampilkan proyek dan keahlian pengembangan web.">
+    <meta property="og:title" content="Philip Portofolio | Front-end Developer">
+    <meta property="og:description" content="Lihat proyek terbaru dan keahlian pengembangan web Philip.">
+    <meta property="og:image" content="gambar/gambar-profil.jpeg"> <meta property="og:url" content="https://url-website-kamu.com">
+    <meta property="og:type" content="website">
 </head>
 <body>
     <header>
-        <a href="" class="logo">Philip</a>
+        <a href="" class="logo">Philip Portofolio</a>
 
         <nav>
-            <a href="#" class="acitive">Home</a>
-            <a href="#">Skill</a>
-            <a href="#">Portofolio</a>
-            <a href="#">Why Hire Me!</a>
-            <a href="#">Testimoni</a>
-            <a href="#">Contact</a>
+            <a href="#Home" class="acitive">Home</a>
+            <a href="#Skill">Skill</a>
+            <a href="#Portofolio">Portofolio</a>
+            <a href="#hire-me">Why Hire Me!</a>
+            <a href="#Testimoni">Testimoni</a>
+            <a href="#Contact">Contact</a>
+            <meta name="description" content="Navbar">
         </nav>
     </header>
     <main>
         <section id="Home">
             <div class="home-img">
-                <img src="/gambar/gambar1.jpeg" alt="Foto Portofolio">
+                <img src="gambar/gambar-profil.jpeg" alt="Foto Philip">
             </div>
             <div class="home-content">
-                <h1 class="my-name">Hi, My Name is <span>Philip</span></h1>
+                <h1 class="my-name"><span>Hi, My Name is Philip</span></h1>
                 <h3 class="">Seorang Front-end Developer</h3>
                 <p>Mahasiswa Teknik Informatika yang sedang meniti karier sebagai pengembang perangkat lunak. Aktif mengikuti pelatihan bootcamp untuk meningkatkan keterampilan teknis dalam menciptakan solusi digital yang inovatif.</p>
-                <div class="social-icons">
-                    <a href="#" class="fa-brands fa-linkedin"></a>
-                    <a href="#" class="fa-brands fa-github"></a>
-                    <a href="#" class="fa-brands fa-x-twitter"></a>
-                    <a href="#" class="fa-brands fa-instagram"></a>
+                <div class="home-btns">
+                    <a href="#Contact" class="btn">Contact Saya!</a>
                 </div>
-                <a href="#" class="hire-me">Rekrut Saya</a>
+                <a href="#hire-me" class="btn">Rekrut Saya</a>
+                
             </div>
         </section>
 
@@ -60,10 +64,116 @@
                 </article>
             </div>
         </section>
-        <section id="Portofolio"></section>
-        <section id="hire-me"></section>
-        <section id="Testimoni"></section>
-        <section id="Contact"></section>
+        <section id="Portofolio">
+            <h2 class="heading">Proyek <span>Terbaru</span></h2>
+
+    <div class="portfolio-container">
+        <article class="portfolio-box">
+            <img src="/gambar/project1.png" alt="Tampilan Web SIC">
+            <div class="portfolio-layer">
+                <h4>Back End SIC WEB</h4>
+                <p>Saat mengmabngun Web SIC, saya bertugas membangun REST API menggunakan Express.js, dimulai dari tahap perancangan ERD untuk Manajemen Database yang efisien, hingga implementasi fitur CRUD Admin yang memudahkan pengelolaan data secara sistematis dan aman.</p>
+            </div>
+        </article>
+
+        <article class="portfolio-box">
+            <img src="/gambar/project2.png" alt="Tampilan Website CBT">
+            <div class="portfolio-layer">
+                <h4>Website CBT</h4>
+                <p>Bertugas membangun logic dari Website CBT menggunakan PHP dan MySQL, pada kompetisi yang dilakukan oleh suatu prodi pada universitas saya</p>
+            </div>
+        </article>
+
+        <article class="portfolio-box">
+            <img src="/gambar/project3.png" alt="Tampilan Website Sidilan FIMPA">
+            <div class="portfolio-layer">
+                <h4>Website Sidilan FIMPA</h4>
+                <p>Mmebuat Backend Aplikasi manajemen data tendik dan laboran, Tugas Rekayasa Perangkat Lunak</p>
+            </div>
+        </article>
+
+        </div>
+        </section>
+        <section id="hire-me">
+            <h2 class="heading"><span>Why Hire Me!</span></h2>
+                
+                <div class="hire-container">
+                    <div class="hire-content">
+                        <p>
+                            Sebagai mahasiswa Informatika yang aktif mengikuti bootcamp, saya memiliki fondasi teori yang kuat sekaligus pengalaman praktis dalam membangun proyek nyata. Saya tidak hanya menulis kode, tapi fokus pada solusi yang efisien dan mudah dikelola.
+                        </p>
+                        
+                        <div class="hire-list">
+                            <div class="hire-item">
+                                <h3>Komitmen Belajar Tinggi</h3>
+                                <p>Cepat beradaptasi dengan teknologi baru dan selalu up-to-date dengan tren Front-end terbaru.</p>
+                            </div>
+                            <div class="hire-item">
+                                <h3>Detail & Responsif</h3>
+                                <p>Fokus pada tampilan yang rapi di semua perangkat dan optimasi performa website.</p>
+                            </div>
+                            <div class="hire-item">
+                                <h3>Kolaborasi Tim</h3>
+                                <p>Memiliki pengalaman bekerja dalam tim menggunakan Git untuk manajemen proyek yang sistematis.</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <section id="Testimoni">
+            <h2 class="heading">Apa Kata Mereka?</h2>
+    
+    <div class="testimonial-container">
+        <article class="testimonial-card">
+            <div class="testimonial-content">
+                <p>"Philip adalah mahasiswa yang sangat berdedikasi. Dalam proyek kelompok, ia berhasil membangun REST API yang sangat terstruktur dan mudah diintegrasikan."</p>
+                <h3>Dr. Irwan Saputra</h3>
+                <span>Dosen Pembimbing</span>
+            </div>
+        </article>
+
+        <article class="testimonial-card">
+            <div class="testimonial-content">
+                <p>"Kemampuannya dalam memahami konsep logika Backend sekaligus Front-end sangat membantu tim kami dalam menyelesaikan aplikasi tepat waktu."</p>
+                <h3>Siti Aminah</h3>
+                <span>Lead Developer di Bootcamp</span>
+            </div>
+        </article>
+
+        <article class="testimonial-card">
+            <div class="testimonial-content">
+                <p>"Sangat teliti dalam pengerjaan UI/UX. Website yang dibangun Philip selalu responsif dan nyaman digunakan di berbagai perangkat."</p>
+                <h3>Rahmat Hidayat</h3>
+                <span>Rekan Proyek SIC</span>
+            </div>
+        </article>
+    </div>
+        </section>
+        <section id="Contact">
+            <h2 class="heading">Hubungi <span>Saya!</span></h2>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Mari Terhubung!</h3>
+                    <p>Silakan hubungi saya melalui platform di bawah ini atau kirim pesan melalui formulir.</p>
+                    
+                    <div class="social-list">
+                        <a href="https://wa.me/628123456789" target="_blank" class="social-item">
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="https://linkedin.com/in/usernameanda" target="_blank" class="social-item">
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/usernameanda" target="_blank" class="social-item">
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://instagram.com/usernameanda" target="_blank" class="social-item">
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>

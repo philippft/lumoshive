@@ -16,26 +16,26 @@ html{
 
 body{
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     overflow-x: hidden;
     background-color: black;
     color: white;
 }
 
 header{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 9%;
-    background-color: transparent;
-    filter: drop-shadow(10px);
+    padding: 2rem 9%;
+    background-color: #161616;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
 }
+
 .my-name {
     font-size: 4rem;
 }
@@ -128,7 +128,39 @@ nav a.active{
     line-height: 1.6;
 }
 
+.contact-container {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.social-list {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.social-list a:hover{
+    font-size: 3rem;
+    color: white;
+    transition: 0.3s ease;
+}
+
+
 @media(max-width:995px){
+
+    #Home {
+        flex-direction: column; 
+        justify-content: center;
+        text-align: center;      
+        gap: 3rem;
+        /* padding-top: 10rem; */
+    }
+
     nav{
         position: absolute;
         display: none;
@@ -159,6 +191,57 @@ nav a.active{
         border-radius: 0.5rem;
         border-bottom: 0.5rem solid #b74b4b;
     }
+
+    .portfolio-container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .portfolio-box {
+        flex-direction: column-reverse;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .portfolio-content {
+        padding-right: 0;
+        margin-top: 20px;
+    }
+
+    .portfolio-layer {
+        margin: 0 0 0 0;
+        /* padding: 2rem; */
+        text-align: center;
+    }
+
+    .portfolio-box img {
+        width: 100%;
+    }
+
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .hire-list {
+        display: block;
+        align-items: column;
+    }
+
 }
 
 section{
@@ -166,13 +249,14 @@ section{
     padding: 5rem 9% 5rem;
 }
 
-.home{
+#Home{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10rem;
     background-color: black;
     min-height: 100vh;
+    padding: 0 9%;
 }
 
 .home .home-content h1{
@@ -202,9 +286,11 @@ span{
 .home-img img{
     position: relative;
     width: 25vw;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     margin-top: 50px;
     border-radius: 50%;
-    box-shadow: 0 0 25px #b74b4b;
+    box-shadow: 0 0 15px #FFFFFF;
     cursor: pointer;
     transition: 0.2s linear;
 }
@@ -214,25 +300,9 @@ span{
     font-weight: 500;
 }
 
-.social-icons a{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 4rem;
-    height: 4rem;
-    background-color: transparent;
-    border: 0.2rem solid #b74b4b;
-    font-size: 2rem;
-    border-radius: 50%;
-    margin: 3rem 1.5rem 3rem 0;
-    color: #b74b4b;
-}
-
-.social-icons a:hover{
-    color: black;
-    transform: scale(1.3) translateY(-5px);
-    background-color: #b74b4b;
-    box-shadow: 0  0 25px #b74b4b;
+.home-btns {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
 }
 
 .btn{
@@ -246,13 +316,12 @@ span{
     font-weight: 600;
     border: 2px solid #b74b4b;
     transition: 0.3s ease;
-    cursor: pointer;
 }
 
 .btn:hover{
     transform: scale3d(1.03);
     background-color: #b74b4b;
-    color: black;
+    color: white;
     box-shadow: 0 0 25px #b74b4b;
 }
 
@@ -287,29 +356,178 @@ span{
     grid-template-columns: 1fr;
 }
 
-@keyframes cursor{
-    to{
-        border-left: 3px solid #b74b4b;
-    }
+#Portofolio {
+    padding: 100px 9%;
+    background-color: black;
+    color: white;
 }
 
-@keyframes words{
-    0%, 20%{
-        content: "Web Developer";
-    }
-    21%, 40%{
-        content: "Developer";
-    }
-    41%, 60%{
-        content: "Web Designer";
-    }
-    61%, 80%{
-        content: "Youtuber";
-    }
-    81%, 100%{
-        content: "Script Writer";
-    }
+.heading {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 50px;
 }
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+#Portofolio {
+    padding: 80px 9%;
+    background: black;
+}
+
+.portfolio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.portfolio-box {
+    display: flex;
+    align-items: center; 
+    background: #161616;
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.portfolio-box:hover {
+    border-color: #FFFFFF; 
+}
+
+.portfolio-layer {
+    margin-left: 3rem;
+}
+
+.portfolio-content {
+    flex: 1;
+    padding-right: 30px;
+}
+
+.portfolio-content h4 {
+    font-size: 2.5rem;
+    color: #b74b4b;
+    margin-bottom: 10px;
+}
+
+.portfolio-content p {
+    font-size: 1.5rem;
+    color: white;
+    line-height: 1.6;
+}
+
+.portfolio-box img {
+    width: 100%; 
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.portfolio-layer h4 {
+    font-size: 2.5rem;
+    color: #b74b4b;
+    margin-bottom: 15px;
+}
+
+.portfolio-layer p {
+    font-size: 1.4rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.btn-small {
+    display: inline-block;
+    margin-top: 15px;
+    color: #b74b4b;
+    font-size: 1.4rem;
+    text-decoration: underline;
+}
+
+#hire-me {
+    background-color: black;
+    padding: 100px 9%;
+}
+
+.hire-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hire-content p {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 4rem;
+    line-height: 1.6;
+}
+
+.hire-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+}
+
+.hire-item {
+    background: #000000;
+    padding: 3rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+}
+
+.hire-item:hover {
+    /* border-color: #FFFFFF; */
+
+}
+
+.hire-item h3 {
+    font-size: 2.2rem;
+    color: #b74b4b;
+    margin-bottom: 1.5rem;
+}
+
+.hire-item p {
+    font-size: 1.4rem;
+    color: #ccc;
+    margin-bottom: 0;
+}
+
+#Testimoni {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    padding: 0 9%;
+}
+
+.testimonial-container {
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;/
+}
+
+.testimonial-container {
+    margin: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.testimonial-coontainer p {
+    align-items: center;
+}
+
+
 
 @media (max-width: 1000px){
     .home{
@@ -318,21 +536,5 @@ span{
 }
 
 @media(max-width:995px){
-    .home{
-        flex-direction: column;
-        margin: 5rem 4rem;
-    }
 
-    .home .home-content h3{
-        font-size: 2.5rem;
-    }
-
-    .home-content h1{
-        font-size: 5rem;
-    }
-
-    .home-img img{
-        width: 70vw;
-        margin-top: 4rem;
-    }
 }
