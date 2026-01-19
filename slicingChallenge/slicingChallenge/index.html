@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slicing Task | Simple Landing Page</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- ===================================================== -->
+  <!-- Suggested components (for slicing)                     -->
+  <!-- 1) Navbar                                              -->
+  <!-- 2) Hero                                                -->
+  <!-- 3) Stats                                               -->
+  <!-- 4) FeatureCard + FeaturesSection                        -->
+  <!-- 5) TestimonialCard + TestimonialsSection                -->
+  <!-- 6) PricingCard + PricingSection                         -->
+  <!-- 7) FAQItem + FAQSection                                 -->
+  <!-- 8) Footer                                              -->
+  <!-- ===================================================== -->
+
+  <!-- ====================== Navbar ======================= -->
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a class="brand" href="#">
+        <span class="brand__logo" aria-hidden="true">◇</span>
+        <span class="brand__text">Idaz</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="#features">Features</a>
+        <a class="nav__link" href="#testimonials">Testimonials</a>
+        <a class="nav__link" href="#pricing">Pricing</a>
+        <a class="nav__link" href="#faq">FAQ</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <a class="btn btn--ghost" href="#pricing">Sign in</a>
+        <a class="btn btn--primary" href="#pricing">Get started</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= Hero ======================= -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="badge">
+            <span class="badge__dot" aria-hidden="true"></span>
+            New: Weekly UI challenges for students
+          </p>
+
+          <h1 class="hero__title">
+            Build clean, reusable UI components
+            <span class="hero__title-accent">fast</span>
+          </h1>
+
+          <p class="hero__subtitle">
+            A simple landing page template for slicing practice.
+            Your task: break this page into small components and reuse them.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#features">Explore features</a>
+            <a class="btn btn--secondary" href="#faq">How it works</a>
+          </div>
+
+          <div class="hero__meta">
+            <div class="avatar-row" aria-label="Happy learners">
+              <span class="avatar avatar--a" aria-hidden="true"></span>
+              <span class="avatar avatar--b" aria-hidden="true"></span>
+              <span class="avatar avatar--c" aria-hidden="true"></span>
+              <span class="avatar avatar--d" aria-hidden="true"></span>
+              <span class="avatar avatar--e" aria-hidden="true"></span>
+              <span class="avatar-row__text">Trusted by 2,400+ learners</span>
+            </div>
+
+            <div class="rating">
+              <span class="rating__stars" aria-hidden="true">★★★★★</span>
+              <span class="rating__text">4.9/5 average rating</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="card-preview">
+            <div class="card-preview__top">
+              <div class="dot dot--red"></div>
+              <div class="dot dot--yellow"></div>
+              <div class="dot dot--green"></div>
+              <div class="card-preview__title">Dashboard</div>
+            </div>
+            <div class="card-preview__body">
+              <div class="mini-chart"></div>
+              <div class="mini-list">
+                <div class="mini-list__item">
+                  <span class="pill pill--success">Active</span>
+                  <span class="mini-list__text">Components built</span>
+                  <span class="mini-list__num">18</span>
+                </div>
+                <div class="mini-list__item">
+                  <span class="pill pill--info">Draft</span>
+                  <span class="mini-list__text">In progress</span>
+                  <span class="mini-list__num">6</span>
+                </div>
+                <div class="mini-list__item">
+                  <span class="pill pill--warning">Review</span>
+                  <span class="mini-list__text">Needs polish</span>
+                  <span class="mini-list__num">3</span>
+                </div>
+              </div>
+              <div class="mini-cta">
+                <button class="btn btn--small btn--primary" type="button">Publish</button>
+                <button class="btn btn--small btn--ghost" type="button">Preview</button>
+              </div>
+            </div>
+          </div>
+          <div class="blob blob--1"></div>
+          <div class="blob blob--2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Stats ====================== -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat">
+            <div class="stat__num">3</div>
+            <div class="stat__label">Page sections</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">12</div>
+            <div class="stat__label">Reusable components</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">1</div>
+            <div class="stat__label">CSS file</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">0</div>
+            <div class="stat__label">Dependencies</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== Features ==================== -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Features made for slicing practice</h2>
+          <p class="section__subtitle">Each block is designed to become a small component.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="feature-card">
+            <div class="icon-bubble" aria-hidden="true">⚡</div>
+            <h3 class="feature-card__title">Clean spacing</h3>
+            <p class="feature-card__text">
+              Consistent paddings and gaps so your components look aligned.
+            </p>
+            <a class="feature-card__link" href="#pricing">Learn more</a>
+          </article>
+
+          <article class="feature-card">
+            <div class="icon-bubble" aria-hidden="true">🧩</div>
+            <h3 class="feature-card__title">Reusable cards</h3>
+            <p class="feature-card__text">
+              Card patterns you can reuse for products, posts, or services.
+            </p>
+            <a class="feature-card__link" href="#testimonials">See examples</a>
+          </article>
+
+          <article class="feature-card">
+            <div class="icon-bubble" aria-hidden="true">🎯</div>
+            <h3 class="feature-card__title">Simple colors</h3>
+            <p class="feature-card__text">
+              Neutral base with one accent color, easy to theme later.
+            </p>
+            <a class="feature-card__link" href="#faq">How to slice</a>
+          </article>
+        </div>
+
+        <div class="split">
+          <div class="split__media" aria-hidden="true">
+            <div class="mock">
+              <div class="mock__badge">UI Kit</div>
+              <div class="mock__title">Component Library</div>
+              <div class="mock__row">
+                <div class="chip">Button</div>
+                <div class="chip">Card</div>
+                <div class="chip">Badge</div>
+                <div class="chip">Modal</div>
+              </div>
+              <div class="mock__row">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="split__content">
+            <h3 class="split__title">Recommended slicing approach</h3>
+            <ul class="list">
+              <li class="list__item"><span class="check">✓</span> Start from layout: container, grid, split</li>
+              <li class="list__item"><span class="check">✓</span> Extract repeated UI: buttons, cards, badges</li>
+              <li class="list__item"><span class="check">✓</span> Use props for text and variants</li>
+              <li class="list__item"><span class="check">✓</span> Keep CSS modular: component blocks</li>
+            </ul>
+            <div class="split__cta">
+              <a class="btn btn--secondary" href="#pricing">View pricing</a>
+              <a class="btn btn--ghost" href="#faq">Read FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== Testimonials =================== -->
+    <section class="section section--alt" id="testimonials">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Loved by learners</h2>
+          <p class="section__subtitle">Great for practicing props, lists, and layout.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="testimonial">
+            <p class="testimonial__text">
+              “I finally understood how to split a page into components without overthinking.”
+            </p>
+            <div class="testimonial__meta">
+              <span class="avatar avatar--a" aria-hidden="true"></span>
+              <div>
+                <div class="testimonial__name">Alya</div>
+                <div class="testimonial__role">Frontend student</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial">
+            <p class="testimonial__text">
+              “The section layout is clean and the cards are perfect for reuse.”
+            </p>
+            <div class="testimonial__meta">
+              <span class="avatar avatar--c" aria-hidden="true"></span>
+              <div>
+                <div class="testimonial__name">Bima</div>
+                <div class="testimonial__role">Bootcamp participant</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial">
+            <p class="testimonial__text">
+              “Easy to theme. I swapped colors and added dark mode in 10 minutes.”
+            </p>
+            <div class="testimonial__meta">
+              <span class="avatar avatar--e" aria-hidden="true"></span>
+              <div>
+                <div class="testimonial__name">Citra</div>
+                <div class="testimonial__role">Junior developer</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== Pricing ===================== -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Pricing</h2>
+          <p class="section__subtitle">Three cards with a highlighted plan. Great for component variants.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="price-card">
+            <h3 class="price-card__title">Starter</h3>
+            <p class="price-card__desc">For beginners who want a clean template.</p>
+            <div class="price-card__price">
+              <span class="price-card__currency">$</span>
+              <span class="price-card__amount">0</span>
+              <span class="price-card__period">/mo</span>
+            </div>
+            <ul class="list list--compact">
+              <li class="list__item"><span class="check">✓</span> 1 landing page</li>
+              <li class="list__item"><span class="check">✓</span> Basic components</li>
+              <li class="list__item"><span class="check">✓</span> Community access</li>
+            </ul>
+            <a class="btn btn--secondary btn--full" href="#">Choose Starter</a>
+          </article>
+
+          <article class="price-card price-card--featured">
+            <div class="price-card__tag">Most popular</div>
+            <h3 class="price-card__title">Pro</h3>
+            <p class="price-card__desc">For students slicing weekly challenges.</p>
+            <div class="price-card__price">
+              <span class="price-card__currency">$</span>
+              <span class="price-card__amount">9</span>
+              <span class="price-card__period">/mo</span>
+            </div>
+            <ul class="list list--compact">
+              <li class="list__item"><span class="check">✓</span> 10 templates</li>
+              <li class="list__item"><span class="check">✓</span> Component checklist</li>
+              <li class="list__item"><span class="check">✓</span> Priority support</li>
+            </ul>
+            <a class="btn btn--primary btn--full" href="#">Choose Pro</a>
+          </article>
+
+          <article class="price-card">
+            <h3 class="price-card__title">Team</h3>
+            <p class="price-card__desc">For group practice and code reviews.</p>
+            <div class="price-card__price">
+              <span class="price-card__currency">$</span>
+              <span class="price-card__amount">29</span>
+              <span class="price-card__period">/mo</span>
+            </div>
+            <ul class="list list--compact">
+              <li class="list__item"><span class="check">✓</span> Unlimited templates</li>
+              <li class="list__item"><span class="check">✓</span> Team guidelines</li>
+              <li class="list__item"><span class="check">✓</span> Review sessions</li>
+            </ul>
+            <a class="btn btn--secondary btn--full" href="#">Choose Team</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== FAQ ======================= -->
+    <section class="section section--alt" id="faq">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">FAQ</h2>
+          <p class="section__subtitle">Each item can become its own component.</p>
+        </div>
+
+        <div class="faq">
+          <details class="faq__item" open>
+            <summary class="faq__question">What does “slicing” mean?</summary>
+            <div class="faq__answer">
+              Slicing means breaking a page into reusable UI components, then rebuilding it using those components.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">Should we slice by section or by UI pattern?</summary>
+            <div class="faq__answer">
+              Start by section, then extract repeated patterns like buttons, cards, badges, and layout wrappers.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">Can we change the design?</summary>
+            <div class="faq__answer">
+              Yes. After slicing, you can theme it, add dark mode, or replace content as long as structure remains
+              similar.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= Footer ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="brand brand--footer">
+          <span class="brand__logo" aria-hidden="true">◇</span>
+          <span class="brand__text">Idaz</span>
+        </div>
+        <p class="footer__text">A simple page for slicing into React components.</p>
+      </div>
+
+      <div class="footer__links">
+        <div class="link-col">
+          <div class="link-col__title">Product</div>
+          <a class="link" href="#features">Features</a>
+          <a class="link" href="#pricing">Pricing</a>
+          <a class="link" href="#faq">FAQ</a>
+        </div>
+
+        <div class="link-col">
+          <div class="link-col__title">Company</div>
+          <a class="link" href="#">About</a>
+          <a class="link" href="#">Careers</a>
+          <a class="link" href="#">Contact</a>
+        </div>
+
+        <div class="link-col">
+          <div class="link-col__title">Resources</div>
+          <a class="link" href="#">Docs</a>
+          <a class="link" href="#">Community</a>
+          <a class="link" href="#">Support</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <span>© 2026 Idaz. All rights reserved.</span>
+      <span class="footer__small">Made for HTML/CSS slicing practice.</span>
+    </div>
+  </footer>
+</body>
+
+</html>
