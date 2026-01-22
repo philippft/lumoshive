@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrasi API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-title">
+            <h1 class="title">Web</h1>
+            <a href="#" class="title-sub-logo">Product</a>
+        </div>
+
+        <nav>
+            <a href="#" class="active" onclick="displayRecipes()">All Recipes</a>
+            <a href="#" onclick="mealTypes()">Meal Types</a>
+            <a href="#" onclick="getAllRecipesTag()">All Recipes Tag</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content">
+            <div class="head-content">
+                <h2>Consume API Tipis-Tipis</h2>
+
+                <div class="search-button">
+                    <input type="text" placeholder="Enter something...">
+                    <button type="submit" class="submit-search" onclick="searchRecipes()"> Search </button>
+                </div>
+            </div>
+
+
+            <div class="recipes-tag" id="recipes-tag">
+
+            </div>
+            <div class="sort-products">
+                <span>Sort Product:</span>
+                <select id="sortRecipe" onchange="sortRecipes()">
+                    <option value="default">Pilih Opsi</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="name-desc">Name (Z-A)</option>
+                </select>
+            </div>
+
+            <div id="product-list" class="product-cards-container">
+                
+            </div>
+
+            <!-- <div class="pagination-container">
+                <button id="prevBtn" class="prevNextBtn"><</button>
+                <span id="pageInfo" class="pageInfo">Page 1</span>
+                <button id="nextBtn" class="prevNextBtn">></button>
+            </div> -->
+        </section>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

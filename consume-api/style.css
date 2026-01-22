@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Special+Gothic+Expanded+One&display=swap');
+
+html, body, * {
+    margin: 0;
+    padding: 0;
+    /* height: 100%; */
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-title {
+    display: flex;
+    align-items: center;
+    /* font-size: 400px; */
+    gap: 3px;
+}
+
+.title {
+    color: #28104E;
+    font-size: 24px;
+    font-weight: 600px;
+}
+
+.title-sub-logo {
+    color: #ffffff;
+    font-size: 14px;
+    /* font-weight: 550; */
+    font-size: 20px;
+    display: flex;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    margin-left: 15px;
+    align-items: center;
+}
+
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+header {
+    background-color: #8954cb;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header a {
+    color: #ffffff;
+    font-weight: 600px;
+    font-size: 14px;
+}
+
+header a:hover {
+    color: #28104E;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a.active {
+    background-color: #28104E;
+    color: #ffffff !important;
+    padding: 6px 10px;
+    border-radius: 18px;
+}
+
+.content {
+    background-color: #DEACF5;
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head-content {
+    margin-top: 10px;
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+}
+
+input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    width: 250px;
+    font-size: 14px;
+}
+
+.submit-search {
+    background-color: #3e125f;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* .submit-search:hover {
+        background-color: #DEACF5;
+    color: #28104E;
+    border: 2px solid #28104E;
+    transition: ease-in;
+    transition: all 0.3s ease-in-out;
+} */
+
+.sort-products {
+    margin-top: 10px;
+    width: 97%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: white;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+#sortRecipe {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    background-color: #8954cb;
+    color: #ffffff;
+}
+
+.product-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+    padding: 20px;
+
+}
+
+.product-card {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    /* gap: 15px; */
+    /* align-items: center; */
+}
+
+.product-title {
+    font-size: 18px;
+    color: #28104E;
+    margin-bottom: 8px;
+}
+
+.product-image {
+    width: 100px;
+    border-radius: 8px;
+}
+
+.pagination-container {
+    display: flex;
+    padding: 5px;
+}
+
+.pageInfo {
+    margin-top: 13px;
+}
+
+.prevNextBtn {
+    margin: 7px;
+    width: 40px; 
+    height: 40px;
+    background-color: #8954cb;
+    color: white;
+    border: none;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tags-title {
+    font-size: 18px;
+}
+
+
+
+
+@media (max-width: 900px) {
+
+    header {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+    }
+
+    .nav-title {
+        justify-content: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .head-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sort-products {
+        justify-content: center;
+    }
+
+    .product-cards-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
