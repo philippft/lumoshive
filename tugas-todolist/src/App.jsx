@@ -4,9 +4,11 @@ function App() {
 
   return (
     <>
-      <TodoList />
+      <div className="app-containter min-h-screen bg-slate-800 py-10">
+        <TodoList />
+      </div>
     </>
-  )
+  );
 }
 
 export default App

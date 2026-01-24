@@ -4,12 +4,10 @@ import TodoItem from "./TodoItem";
 export default class TodoList extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       todos: [],
       input: "",
     };
-
     this.todoId = 1;
   }
 
@@ -49,38 +47,46 @@ export default class TodoList extends React.Component {
 
   render() {
     return (
-      <div className="container mt-5">
-        <h1>Todo List</h1>
+      <div className="max-w-md mx-auto mt-10 p-6 bg-slate-800 rounded-xl border border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+        <h1 className="text-3xl font-bold text-white mb-6 text-center">
+          Todo List
+        </h1>
 
-        <form className="input-group mb-3" onSubmit={this.addTodo}>
+        <form className="flex gap-2 mb-6" onSubmit={this.addTodo}>
           <input
             type="text"
-            className="form-control"
+            className="flex-1 px-4 py-2 bg-slate-700 border border-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all placeholder:text-slate-400"
             value={this.state.input}
             onChange={this.handleInputChange}
             required
             placeholder="Enter a task"
           />
-          <div className="input-group-append">
-            <button className="btn btn-primary" type="submit">
-              Add
-            </button>
-          </div>
+          <button
+            className="px-6 py-2 bg-amber-400 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200"
+            type="submit"
+          >
+            Add
+          </button>
         </form>
-        {this.state.todos.length > 0 ? (
-          this.state.todos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              toggleComplete={this.toggleComplete}
-              removeTodo={this.removeTodo}
-            />
-          ))
-        ) : (
-          <div className="alert alert-secondary mt-3 text-center">
-            <p className="mb-0 font-weight-bold">No Todo available</p>
-          </div>
-        )}
+
+        <div className="space-y-3">
+          {this.state.todos.length > 0 ? (
+            this.state.todos.map((todo) => (
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+                toggleComplete={this.toggleComplete}
+                removeTodo={this.removeTodo}
+              />
+            ))
+          ) : (
+            <div className="p-4 bg-slate-700/50 border border-dashed border-slate-600 rounded-lg text-center">
+              <p className="text-slate-400 font-medium text-sm">
+                No Todo available
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
