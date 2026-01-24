@@ -149,6 +149,10 @@ navLinks.forEach((link) => {
   });
 });
 
+// fetch("https://dummyjson.com/recipes/1")
+//   .then((res) => res.json())
+//   .then(console.log);
+
 // fetch("https://dummyjson.com/recipes?sortBy=name&order=asc")
 //   .then((res) => res.json())
 //   .then(console.log);
