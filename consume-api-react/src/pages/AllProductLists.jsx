@@ -1,3 +1,5 @@
+import Card from "../components/Card";
+
 
 export default function AllProductLists() {
   return (
@@ -6,6 +8,7 @@ export default function AllProductLists() {
             Testing
         </h1>
         
+        <Card />
     </div>
   );
 }
