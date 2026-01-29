@@ -1,18 +1,9 @@
 import axios from "axios";
 
-const BASE_URL =  import.meta.env.VITE_URL;
+const BASE_URL =  'https://fakestoreapi.com/products';
 
-const getAllProduct = () => axios.get(BASE_URL);
-const getProduct = (id) => axios.get(`${BASE_URL}/${id}`);
-const AddProduct = (data) => axios.post(`${BASE_URL}`, data);
-const UpdateProduct = (data, id) => axios.put(`${BASE_URL}/${id}`, data);
-const DeleteProduct = (id) => axios.delete(`${BASE_URL}/${id}`);
-
-
-export default {
-                getAllProduct, 
-                getProduct, 
-                AddProduct, 
-                UpdateProduct, 
-                DeleteProduct
-              };
+export const getAllProducts = () => axios.get(BASE_URL);
+export const getProduct = (id) => axios.get(`${BASE_URL}/${id}`);
+export const AddProduct = (data) => axios.post(BASE_URL, data);
+export const UpdateProduct = (data, id) => axios.put(`${BASE_URL}/${id}`, data);
+export const DeleteProduct = (id) => axios.delete(`${BASE_URL}/${id}`);

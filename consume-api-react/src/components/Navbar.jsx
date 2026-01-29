@@ -13,7 +13,7 @@ export default function Navbar () {
             Lihat Produk
           </NavLink>
 
-          <NavLink to="/tambah" className={({ isActive }) => `hover:text-slate-300 transition ${ isActive ? "font-semibold underline" : "" }`}>
+          <NavLink to="/products/add" className={({ isActive }) => `hover:text-slate-300 transition ${ isActive ? "font-semibold underline" : "" }`}>
             Tambah Produk
           </NavLink>
         </div>
