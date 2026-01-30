@@ -3,20 +3,20 @@ import Button from './Button';
 import { Link } from "react-router-dom";
 
 
-export default function Card ({product}) {
+export default function Card ({ product, onDelete }) {
     // console.log(product);
     return (
         <div className="flex items-center flex-row p-4 bg-slate-800 text-sky-50 border rounded-xl">
-            <img src={product.image} alt="Testing" className="w-24 h-24 border rounded-full"/>
+            <img src={product.image} alt="Testing" className="w-24 h-24 border rounded-full object-contain p-2"/>
 
             <div className="flex flex-col min-w-[125px] m-4">
                 <h1 className="text-xl font-semibold mb-1">{product.title}</h1>
-                <p className="">Info</p>
+                {/* <p className="">Info</p> */}
             </div>
             
             <div className="flex flex-col gap-3 ml-4">
                 <Button className="bg-sky-600 hover:bg-sky-700 border rounded-md text-sm p-1" text="Edit"/>
-                <Button className="bg-rose-700 hover:bg-rose-800 border rounded-md text-sm p-1" text="Delete"/>
+                <Button className="bg-rose-700 hover:bg-rose-800 border rounded-md text-sm p-1" text="Delete" onClick={onDelete}/>
                 <Link to={`/product/${product.id}`}>
                     <Button className="bg-sky-600 hover:bg-sky-700 border rounded-md text-xs p-1" text="Detail Info"></Button>
                 </Link>
