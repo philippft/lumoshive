@@ -6,7 +6,7 @@ import { getProduct, UpdateProduct } from "../services/api";
 
 export default function EditProductContainer() {
   const { id } = useParams();
-  const { isModalOpen, setIsModalOpen, modalConfig, setModalConfig } =
+  const { modalConfig, setModalConfig } =
     useContext(ProductContext);
 
   const [title, setTitle] = useState("");
@@ -27,18 +27,21 @@ export default function EditProductContainer() {
     try {
       const res = await UpdateProduct(data, id);
       setModalConfig({
+        isOpen: true,
+        mode: "edit",
         title: "Update Berhasil!",
         message: `Produk ${res.data.title} berhasil diedit.`,
         type: "success",
+        onConfirm: null,
       });
-      setIsModalOpen(true);
     } catch (error) {
       setModalConfig({
+        isOpen: true,
         title: "Update Gagal!",
         message: error.message,
         type: "error",
+        onConfirm: null,
       });
-      setIsModalOpen(true);
     }
   };
 
@@ -56,9 +59,8 @@ export default function EditProductContainer() {
       price={price}
       setPrice={setPrice}
       handleSubmit={handleSubmit}
-      isModalOpen={isModalOpen}
-      setIsModalOpen={setIsModalOpen}
       modalConfig={modalConfig}
+      setModalConfig={setModalConfig}
     />
   );
 }

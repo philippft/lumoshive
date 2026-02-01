@@ -2,7 +2,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 
-export default function EditProductPage({ title, setTitle, price, setPrice, handleSubmit, isModalOpen, setIsModalOpen, modalConfig }) {
+export default function EditProductPage({ title, setTitle, price, setPrice, handleSubmit, modalConfig, setModalConfig }) {
 
   return (
     <div className="flex flex-col items-center bg-slate-600 min-h-screen w-full justify-center p-6">
@@ -34,8 +34,8 @@ export default function EditProductPage({ title, setTitle, price, setPrice, hand
       </form>
 
       <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={modalConfig.isOpen}
+        onClose={() => setModalConfig({ ...modalConfig, isOpen: false })}
         {...modalConfig}
       />
     </div>

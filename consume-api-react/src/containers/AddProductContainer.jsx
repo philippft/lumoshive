@@ -7,7 +7,7 @@ export default function AddProductContainer() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
 
-  const { isModalOpen, setIsModalOpen, modalConfig, setModalConfig } = useContext(ProductContext);
+  const { modalConfig, setModalConfig } = useContext (ProductContext);
 
   const handleAddProduct = async (title, price, onSuccess) => {
     const payload = {
@@ -21,19 +21,23 @@ export default function AddProductContainer() {
     try {
       const res = await AddProduct(payload);
       setModalConfig({
+        isOpen: true,
+        mode: "add",
         title: "Berhasil!",
         message: `Produk ${res.data.title} sudah masuk sistem.`,
         type: "success",
+        onConfirm: null,
       });
-      setIsModalOpen(true);
+
       if (onSuccess) onSuccess();
     } catch (error) {
       setModalConfig({
+        isOpen: true,
         title: "Waduh, Gagal!",
         message: `Error: ${error.message}`,
         type: "error",
+        onConfirm: null,
       });
-      setIsModalOpen(true);
     }
   };
 
@@ -51,9 +55,8 @@ export default function AddProductContainer() {
         setTitle={setTitle}
         price={price}
         setPrice={setPrice}
-        isModalOpen={isModalOpen} 
-        setIsModalOpen={setIsModalOpen}
         modalConfig={modalConfig}
+        setModalConfig={setModalConfig}
         handleSubmit={handleSubmit}
     />
   );

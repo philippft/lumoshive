@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import AllProductLists from "../pages/AllProductLists";
+import { useContext } from "react";
+import { ProductContext } from "../context/ProductContext";
 import { getAllProducts, DeleteProduct } from "../services/api";
 
 export default function ProductListContainer() {
   const [products, setProducts] = useState([]);
+
+  const { modalConfig, setModalConfig } = useContext (ProductContext);
 
   const fetchProducts = async () => {
     try {
@@ -30,11 +34,25 @@ export default function ProductListContainer() {
   }
 
   const handleDelete = async (id) => {
-    const del = await DeleteProduct(id);
-    setProducts((prev) => prev.filter((p) => p.id !== id));
-    console.log(del);
+    try {
+      const del = await DeleteProduct(id);
+      setProducts((prev) => prev.filter((p) => p.id !== id));
+      setModalConfig({
+        isOpen: true,
+        mode: "info",
+        title: "Berhasil Dihapus!",
+        message: `Produk ${del.data.title} berhasil dihapus.`,
+        type: "success",
+      });
+    } catch (error) {
+      setModalConfig({
+        isOpen: true,
+        title: "Gagal Menghapus!",
+        message: `Error: ${error.message}`,
+        type: "error",
+      });
+    }
   };
 
-  return <AllProductLists products={products} onDelete={handleDelete} />;
-  // return <ProductList products={products} onDelete={handleDelete} />;
+  return <AllProductLists products={products} onDelete={handleDelete} modalConfig={modalConfig} setModalConfig={setModalConfig} />;
 }
