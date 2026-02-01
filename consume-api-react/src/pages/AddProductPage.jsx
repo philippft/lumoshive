@@ -1,10 +1,18 @@
 import Button from "../components/Button";
 import Input from "../components/Input";
 import Modal from "../components/Modal";
+import { Link } from "react-router-dom";
 
 export default function AddProductPage({ title, setTitle, price, setPrice, modalConfig, setModalConfig, handleSubmit }) {
 
   return (
+    <div className="bg-slate-600 min-h-screen w-full">
+      <Link to={`/`}>
+        <Button
+          className="m-4 p-3 bg-slate-700 text-white border border-slate-700 rounded-lg hover:bg-slate-900 hover:shadow-[0_0_20px_rgba(56,189,248,0.2)] hover:-translate-y-1"
+          text="Kembali"
+        />
+      </Link>
     <div className="flex flex-col items-center bg-slate-600 min-h-screen w-full justify-center p-6">
       <h1 className="bg-slate-700 p-2 w-112 text-center text-white text-2xl border rounded-md font-bold mb-8">
         Add Product Page
@@ -38,6 +46,7 @@ export default function AddProductPage({ title, setTitle, price, setPrice, modal
         onClose={() => setModalConfig({ ...modalConfig, isOpen: false })}
         {...modalConfig}
       />
+    </div>
     </div>
   );
 }

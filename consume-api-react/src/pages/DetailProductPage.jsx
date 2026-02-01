@@ -6,7 +6,7 @@ export default function DetailProductPage({ product }) {
   console.log(product);
   return (
     <div className="bg-slate-600 min-h-screen w-full">
-      <Link to={`/products`}>
+      <Link to={`/`}>
         <Button
           className="m-4 p-3 bg-slate-700 text-white border border-slate-700 rounded-lg hover:bg-slate-900 hover:shadow-[0_0_20px_rgba(56,189,248,0.2)] hover:-translate-y-1"
           text="Kembali"
