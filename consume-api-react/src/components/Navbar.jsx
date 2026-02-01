@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar () { 
   return (
-    <nav className="bg-slate-800 text-white shadow-md">
+    <nav className="bg-slate-800 text-white shadow-md p-2">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" className="text-xl font-bold tracking-wide hover:text-slate-300">
           FakeStore CRUD

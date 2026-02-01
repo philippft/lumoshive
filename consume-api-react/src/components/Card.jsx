@@ -15,7 +15,9 @@ export default function Card ({ product, onDelete }) {
             </div>
             
             <div className="flex flex-col gap-3 ml-4">
-                <Button className="bg-sky-600 hover:bg-sky-700 border rounded-md text-sm p-1" text="Edit"/>
+                <Link to={`product/edit/${product.id}`}>
+                    <Button className="bg-sky-600 hover:bg-sky-700 border rounded-md text-sm p-1" text="Edit"/>
+                </Link>
                 <Button className="bg-rose-700 hover:bg-rose-800 border rounded-md text-sm p-1" text="Delete" onClick={onDelete}/>
                 <Link to={`/product/${product.id}`}>
                     <Button className="bg-sky-600 hover:bg-sky-700 border rounded-md text-xs p-1" text="Detail Info"></Button>

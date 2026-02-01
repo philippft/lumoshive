@@ -1,9 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import AddProductPage from "../pages/AddProductPage";
 import ProductListContainer from "../containers/ProductListContainer";
 import DetailProductContainer from "../containers/DetailProductContainer";
-// import DetailProductPage from "../pages/DetailProductPage";
-// import EditProductPage from "../pages/products/EditProductPage";
+import EditProductContainer from "../containers/EditProductContainer";
+import AddProductContainer from "../containers/AddProductContainer";
 
 export default function AppRoutes () {
     return (
@@ -11,8 +10,8 @@ export default function AppRoutes () {
             <Route path="/" element={<ProductListContainer />} />
             <Route path="/products" element={<ProductListContainer />} />
             <Route path="/product/:id" element={<DetailProductContainer />} />
-            <Route path="/products/add" element={<AddProductPage />} />
-            {/* <Route path="/products/:id/edit" element={<EditProductPage />} /> */}
+            <Route path="/products/add" element={<AddProductContainer />} />
+            <Route path="/product/edit/:id" element={<EditProductContainer />} />
         </Routes>
     )
 }

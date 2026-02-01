@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AllProductLists from "../pages/AllProductLists";
-import { getAllProducts, deleteProduct } from "../services/api";
+import { getAllProducts, DeleteProduct } from "../services/api";
 
 export default function ProductListContainer() {
   const [products, setProducts] = useState([]);
@@ -30,8 +30,9 @@ export default function ProductListContainer() {
   }
 
   const handleDelete = async (id) => {
-    await deleteProduct(id);
+    const del = await DeleteProduct(id);
     setProducts((prev) => prev.filter((p) => p.id !== id));
+    console.log(del);
   };
 
   return <AllProductLists products={products} onDelete={handleDelete} />;
