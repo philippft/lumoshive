@@ -1,12 +1,12 @@
-import Navbar from "./components/Navbar"
-import HeaderPage from "./pages/HeaderPage"
+import HeaderContainer from "./containers/HeaderContainer"
+import ProductPage from "./pages/ProductPage"
 
 function App() {
 
   return (
     <>
-      {/* <Navbar /> */}
-      <HeaderPage />
+      <HeaderContainer />
+      <ProductPage />
     </>
   )
 }
