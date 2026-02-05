@@ -1,13 +1,14 @@
-import ContentImg from "../assets/content.jpg";
 import ProductCard from "../components/ProductCard";
+import ContentImg from "../assets/content.jpg";
 import Content from "../components/Content";
 
-export default function ProductPage() {
+export default function ProductPage({ data }) {
+  // console.log("Data dari Page: ", data);
     return (
       <div className="flex flex-col items-center justify-center min-h-screen w-full">
         <div className="flex bg-white h-160 w-full mt-10">
           <div className="font-saira w-1/3 pl-35 py-20 flex flex-col items-start gap-14">
-            <h2 className="w-1/2 font-saira font-semibold text-[40px] text-darkblue leading-tight">
+            <h2 className="w-3/4 font-saira font-semibold text-[40px] text-darkblue leading-tight">
               New In Store Now
             </h2>
             <span className="w-3/4 font-saira font-normal text-bluedark">
@@ -34,31 +35,13 @@ export default function ProductPage() {
               </svg>
             </a>
           </div>
-          <div className="flex overflow-x-auto no-scrollbar gap-10">
-            <ProductCard
-              img={ContentImg}
-              alt="Content"
-              title="Content Title"
-              className="m-4 ml-10 w-86 h-132 rounded-lg"
-            />
-            <ProductCard
-              img={ContentImg}
-              alt="Content"
-              title="Content Title"
-              className="m-4 ml-10 w-86 h-132 rounded-lg"
-            />
-            <ProductCard
-              img={ContentImg}
-              alt="Content"
-              title="Content Title"
-              className="m-4 ml-10 w-86 h-132 rounded-lg"
-            />
-            <ProductCard
-              img={ContentImg}
-              alt="Content"
-              title="Content Title"
-              className="m-4 ml-10 w-86 h-132 rounded-lg"
-            />
+          <div className="flex overflow-x-auto no-scrollbar gap-8">
+            {data.map((item) => (
+              <ProductCard
+              img={item.image}
+              title={item.title}
+              className="w-86 h-132 rounded-lg shrink-0" />
+            ))}
           </div>
         </div>
         <Content />

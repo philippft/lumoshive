@@ -12,10 +12,7 @@ export const getFurnitureData = async () => {
   return response.data;
 };
 
-export const getCategory = async () => {
-  const response = await axios.get(`${BASE_URL}/category`);
-  return response.data;
-};
+export const getCategory = () => axios.get(`${BASE_URL}/category`);
 // export const getProduct = () => jujur masih bingung, soalnya ini pagaginate
 // exoprt const getTestimonial = () => jujur ini juga bingung paginate
 export const subscribeMail = (data) => axios.post(`${BASE_URL}/subscribe`, data); 

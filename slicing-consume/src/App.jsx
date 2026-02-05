@@ -1,12 +1,12 @@
 import HeaderContainer from "./containers/HeaderContainer"
-import ProductPage from "./pages/ProductPage"
+import ProductContainer from "./containers/ProductContainer";
 
 function App() {
 
   return (
     <>
       <HeaderContainer />
-      <ProductPage />
+      <ProductContainer />
     </>
   )
 }

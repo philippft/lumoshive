@@ -12,3 +12,11 @@
   --font-saira: "Saira", sans-serif;
   --font-special: "Special Gothic Expanded One", serif;
 }
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
