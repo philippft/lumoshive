@@ -1,6 +1,6 @@
 
 
-export default function ProductCard ({ img, alt, title, className}) {
+export default function ProductCard ({ img, alt, title, className }) {
     return (
       <div>
         <img src={img} alt={alt} className={className}/>

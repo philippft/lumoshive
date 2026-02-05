@@ -33,8 +33,8 @@ export default function Content({ content }) {
         );
     } else {
         return (
-          <div className="flex">
-            <div className="flex flex-col text-bluedark justify-center h-full w-1/2 mt-20 gap-10">
+          <div className="flex w-full pl-15 items-center py-8 text-4xl px-8 gap-10">
+            <div className="flex flex-col pl-20 text-bluedark justify-center h-full w-1/2 mt-20 gap-10">
               <h2 className="w-4/5 font-saira font-semibold text-[40px] leading-snug">
                 The Best Furniture Manufacturer of your choice
               </h2>
