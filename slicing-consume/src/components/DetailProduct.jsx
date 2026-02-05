@@ -2,7 +2,7 @@
 export default function DetailProduct ({ labelTitle, labelDec }) {
     return (
       <div className="flex items-start gap-5">
-        <div className="flex-shrink-0 mt-1">
+        <div className="shrink-0 mt-1">
           <div className="w-5 h-5 bg-[#1D2939] rounded-full flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
