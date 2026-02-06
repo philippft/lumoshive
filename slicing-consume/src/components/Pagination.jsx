@@ -2,7 +2,6 @@
 export default function Pagination({ current, total, onChange }) {
   return (
     <div className="flex items-center justify-center gap-4 mt-12">
-      {/* Tombol Back */}
       <button
         disabled={current === 1}
         onClick={() => onChange(current - 1)}
@@ -24,7 +23,6 @@ export default function Pagination({ current, total, onChange }) {
         </svg>
       </button>
 
-      {/* Indikator Titik (Dots) */}
       <div className="flex gap-2">
         {[...Array(total)].map((_, index) => (
           <div
@@ -36,7 +34,6 @@ export default function Pagination({ current, total, onChange }) {
         ))}
       </div>
 
-      {/* Tombol Next */}
       <button
         disabled={current === total}
         onClick={() => onChange(current + 1)}

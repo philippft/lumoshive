@@ -1,6 +1,7 @@
 import AllProductsContainer from "./containers/AllProductsContainer";
 import HeaderContainer from "./containers/HeaderContainer"
 import ProductContainer from "./containers/ProductContainer";
+import TestimonialPage from "./pages/TestimonialPage";
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
       <HeaderContainer />
       <ProductContainer />
       <AllProductsContainer />
+      <TestimonialPage />
     </>
   )
 }
