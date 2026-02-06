@@ -13,7 +13,8 @@ export const getFurnitureData = async () => {
 };
 
 export const getCategory = () => axios.get(`${BASE_URL}/category`);
-// export const getProduct = () => jujur masih bingung, soalnya ini pagaginate
+export const getProduct = () => axios.get(`${BASE_URL}/product?page=1&limit=8`);
+
 // exoprt const getTestimonial = () => jujur ini juga bingung paginate
 export const subscribeMail = (data) => axios.post(`${BASE_URL}/subscribe`, data); 
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getCategory } from "../services/api";
 import ProductPage from "../pages/ProductPage";
 
-export default function HeaderContainer() {
+export default function ProductContainer() {
     const [data, setData] = useState(null);
 
     useEffect(() => {

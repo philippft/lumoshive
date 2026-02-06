@@ -36,8 +36,9 @@ export default function ProductPage({ data }) {
             </a>
           </div>
           <div className="flex overflow-x-auto no-scrollbar gap-8">
-            {data.map((item) => (
+            {data?.map((item) => (
               <ProductCard
+              key={item.id}
               img={item.image}
               title={item.title}
               className="w-86 h-132 rounded-lg shrink-0" />
