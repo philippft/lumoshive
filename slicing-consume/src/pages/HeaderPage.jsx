@@ -17,7 +17,7 @@ export default function HeaderPage({ data }) {
     return (
       <>
         <div
-          className="relative min-h-screen w-full bg-cover bg-center flex flex-col"
+          className="relative min-h-screen w-full bg-cover bg-center flex flex-col bg-fixed"
           style={{ backgroundImage: `url(${data?.header?.banner})` }}
         >
           <div className="absolute inset-0 bg-black/30"></div>

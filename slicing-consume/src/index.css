@@ -4,11 +4,12 @@
 
 @theme {
 
-  --bg-grey: #E2E2E266; 
+  --color-bluedark: #23262F;
+  --color-grey: #E2E2E266;
+  --color-border-abu: #102637;
 
-  ---border-abu: #102637;
-
-  --text-bluedark: #23262F;
+  --color-footer-dark: #23262F;
+  --color-border-line: #ffffff33;
 
   --font-inter: "Inter", ui-sans-serif, system-ui;
   --font-saira: "Saira", sans-serif;
