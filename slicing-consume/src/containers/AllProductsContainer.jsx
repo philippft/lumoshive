@@ -6,13 +6,14 @@ export default function AllProductsContainer () {
     const [data, setData] = useState(null);
     console.log(data);
 
+    const fetchProducts = async (page, total) => {
+      const res = await getProduct(page, total);
+      setData(res.data);
+    };
+
     useEffect(() => {
-        const fetchProducts = async () => {
-            const res = await getProduct();
-            setData(res.data.products);
-        }
-        fetchProducts();
+        fetchProducts(1, 8);
     }, []);
 
-    return <AllProductsPage data={data} />;
+    return <AllProductsPage data={data} onChange={fetchProducts} />;
 }

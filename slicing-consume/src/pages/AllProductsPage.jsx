@@ -1,9 +1,11 @@
 import AllProductCard from "../components/AllProductCard";
 import Pagination from "../components/Pagination";
 
-export default function AllProductsPage({ data }) {
+export default function AllProductsPage({ data, onChange }) {
   console.log("data all products page:", data);
-
+  if (!data) {
+    return <div>Loading...</div>;
+  }
     return (
       <div className="mt-25 min-h-screen w-full bg-white">
         <div className="font-saira flex flex-col justify-center items-center gap-5">
@@ -15,7 +17,7 @@ export default function AllProductsPage({ data }) {
         </div>
 
         <div className="flex flex-wrap justify-center gap-10 mt-12">
-          {data?.map ((product)=>(
+          {data?.products.map ((product)=>(
             <AllProductCard 
               key={product.id}
               img={product.image}
@@ -27,7 +29,7 @@ export default function AllProductsPage({ data }) {
         </div>
 
         <div>
-          <Pagination current="1" total="5" onChange={(page) => console.log("Halaman ke:", page)} />
+          <Pagination current={data?.page} total={data?.totalPages} onChange={onChange} />
         </div>
       </div>
     );

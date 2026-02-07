@@ -1,10 +1,13 @@
 
 export default function Pagination({ current, total, onChange }) {
+  console.log("Current Page:", current);
+  console.log("Total Barang:", total);
+  const limit = 8;
   return (
     <div className="flex items-center justify-center gap-4 mt-12">
       <button
-        disabled={current === 1}
-        onClick={() => onChange(current - 1)}
+        disabled={current == 1}
+        onClick={() => onChange(current - 1, limit)}
         className="p-3 rounded-full border shadow-sm disabled:opacity-30"
       >
         <svg
@@ -27,16 +30,16 @@ export default function Pagination({ current, total, onChange }) {
         {[...Array(total)].map((_, index) => (
           <div
             key={index}
-            className={`h-2 w-2 rounded-full transition-all ${
-              current === index + 1 ? "bg-darkblue w-4" : "bg-gray-300"
+            className={`h-2 w-2 border border-bluedark rounded-full transition-all ${
+              current === index + 1 ? "bg-bluedark" : "bg-white"
             }`}
           />
         ))}
       </div>
 
       <button
-        disabled={current === total}
-        onClick={() => onChange(current + 1)}
+        disabled={current == total}
+        onClick={() => onChange(current + 1, limit)}
         className="p-3 rounded-full border shadow-sm disabled:opacity-30"
       >
         <svg
