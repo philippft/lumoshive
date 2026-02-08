@@ -1,7 +1,7 @@
 
 export default function Pagination({ current, total, onChange }) {
-  console.log("Current Page:", current);
-  console.log("Total Barang:", total);
+  // console.log("Current Page:", current);
+  // console.log("Total Barang:", total);
   const limit = 8;
   return (
     <div className="flex items-center justify-center gap-4 mt-12">

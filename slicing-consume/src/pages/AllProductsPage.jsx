@@ -2,7 +2,7 @@ import AllProductCard from "../components/AllProductCard";
 import Pagination from "../components/Pagination";
 
 export default function AllProductsPage({ data, onChange }) {
-  console.log("data all products page:", data);
+  // console.log("data all products page:", data);
   if (!data) {
     return <div>Loading...</div>;
   }

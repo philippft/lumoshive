@@ -1,7 +1,7 @@
 import Tambah from "../assets/tambah.svg";
 
 export default function AllProductCard({ img, title, price, priceDiscount }) {
-  console.log(priceDiscount);
+  // console.log(priceDiscount);
   return (
     <div className="w-1/5">
       <div

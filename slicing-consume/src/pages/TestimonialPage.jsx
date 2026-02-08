@@ -1,7 +1,19 @@
 import TestimonialImg from "../assets/testimonial.jpg";
-import TestimonialPerson from "../assets/testimonial-person.jpg";
+// import TestimonialPerson from "../assets/testimonial-person.jpg";
 
-export default function TestimonialPage () {
+export default function TestimonialPage ({ data, onChange }) {
+  if(!data) {
+    return (
+      <div>
+        <h1>Loading</h1>
+      </div>
+    )
+  }
+  
+  const page = data.page;
+  const limit = 1;
+  const totalPage = data.totalPage;
+  
     return (
       <div className="mx-auto px-8 md:px-16 lg:px-24 py-20 flex flex-col md:flex-row items-center gap-8">
         <div className="ml-15 w-1/3 md:w-1/2 flex flex-col gap-8">
@@ -11,27 +23,30 @@ export default function TestimonialPage () {
 
           <div className="flex items-center gap-4">
             <img
-              src={TestimonialPerson}
+              src={data?.testimonials[0].image}
               alt="Josh Smith"
               className="w-16 h-16 rounded-full object-cover shadow-sm"
             />
             <div className="flex flex-col">
               <h3 className="text-xl font-bold text-[#23262F] font-saira">
-                Josh Smith
+                {data?.testimonials[0].name}
               </h3>
               <span className="text-sm text-gray-400 font-saira">
-                Manager of The New York Times
+                {data?.testimonials[0].title}
               </span>
             </div>
           </div>
 
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-saira italic">
-            “They have a perfect touch for make something so professional,
-            interest and useful for a lot of people.”
+            {data?.testimonials[0].message}
           </p>
 
           <div className="flex gap-4">
-            <button className="w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#246363] hover:text-white transition-all text-gray-400 shadow-lg">
+            <button
+              disabled={page === 1}
+              onClick={() => onChange(page - 1, limit)}
+              className="w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#246363] hover:text-white transition-all text-gray-400 shadow-lg"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -47,7 +62,11 @@ export default function TestimonialPage () {
                 />
               </svg>
             </button>
-            <button className="w-12 h-12 flex items-center justify-center text-gray-400 hover:bg-[#246363] hover:text-white rounded-full transition-all shadow-lg">
+            <button
+              disabled={page === totalPage}
+              onClick={() => onChange(page + 1, limit)}
+              className="w-12 h-12 flex items-center justify-center text-gray-400 hover:bg-[#246363] hover:text-white rounded-full transition-all shadow-lg"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

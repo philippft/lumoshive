@@ -1,9 +1,9 @@
 import AllProductsContainer from "./containers/AllProductsContainer";
 import HeaderContainer from "./containers/HeaderContainer"
 import ProductContainer from "./containers/ProductContainer";
-import EmailSubscribPage from "./pages/EmailSubscribePage";
-import TestimonialPage from "./pages/TestimonialPage";
+import EmailSubscribePage from "./pages/EmailSubscribePage";
 import Footer from "./components/Footer";
+import TestimonialContainer from "./containers/TestimonialContainer";
 
 function App() {
 
@@ -12,8 +12,8 @@ function App() {
       <HeaderContainer />
       <ProductContainer />
       <AllProductsContainer />
-      <TestimonialPage />
-      <EmailSubscribPage />
+      <TestimonialContainer />
+      <EmailSubscribePage />
       <Footer />
     </>
   )
