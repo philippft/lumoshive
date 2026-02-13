@@ -17,7 +17,6 @@ export default function HeaderContainer() {
     const fetchProducts = async () => {
         try {
             const res = await getHeader();
-            // console.log("res header container:", res.data);
             return res.data;
         } catch (error) {
             console.log(error);

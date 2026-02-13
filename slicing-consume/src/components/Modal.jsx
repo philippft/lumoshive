@@ -52,7 +52,7 @@ export default function Modal({ status, message, onClose }) {
           <h3
             className={`text-2xl font-bold font-saira mb-3 tracking-tight ${isSuccess ? "text-[#23262F]" : "text-red-600"}`}
           >
-            {isSuccess ? "Subscription Successful!" : "Subscription Failed"}
+            {isSuccess ? "Langganan Berhasil!" : "Langganan Gagal"}
           </h3>
           <p className="text-gray-500 font-saira leading-relaxed px-2">
             {message}
