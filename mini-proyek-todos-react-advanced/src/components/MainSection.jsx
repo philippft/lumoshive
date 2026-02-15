@@ -1,5 +1,6 @@
 import NoTask from "./NoTask";
 import Search from "./Search";
+import TodoCard from "./TodoCard";
 
 export default function MainSection() {
   return (
@@ -20,7 +21,8 @@ export default function MainSection() {
           </span>
         </div>
       </div>
-      <NoTask />
+      <TodoCard />
+      {/* <NoTask /> */}
     </main>
   );
 }
