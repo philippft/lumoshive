@@ -1,15 +1,37 @@
-import Trash from '../assets/trash.png';
+import Check from '../assets/check.png';
 
-export default function TodoCard () {
+export default function TodoCard ({ text, status }) {
+  // console.log(key)
     return (
-      <article className="flex items-start gap-4 w-full p-4 border rounded-lg shadow-sm">
-        <button className="mt-1 min-w-[24px] h-6 w-6 border rounded-full transition-all flex items-center justify-center">
-/         // icon centang
+      <article
+        className={`flex items-start gap-4 w-full p-4 mt-4 border rounded-lg shadow-sm ${status ? "bg-gray-200 border-gray-200" : ""}`}
+      >
+        <button
+          className={`mt-1 min-w-[24px] h-6 w-6 border rounded-full transition-all flex items-center justify-center ${status ? "border-gray-200 bg-purple-500" : ""}`}
+        >
+          {status && (
+            <svg
+              width="10"
+              height="7"
+              viewBox="0 0 10 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 3.5L3.8 6.3L9 1.1"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
         </button>
 
-        <p className="flex-1 text-sm leading-relaxed">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-          repudiandae aliquam maiores totam quod voluptatem labore.
+        <p
+          className={`flex-1 text-sm leading-relaxed ${status ? "line-through text-gray-500" : ""}`}
+        >
+          {text}
         </p>
 
         <button className="p-1 rounded-md transition-colors group">
@@ -19,7 +41,7 @@ export default function TodoCard () {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-6"
+            className="size-6"
           >
             <path
               stroke-linecap="round"

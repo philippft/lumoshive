@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axiosInstance from "../../api/axiosInstance";
+import axiosInstance from "../../api/api";
 
 export const fetchAllTodos = createAsyncThunk("todos/fetchTodos", async () => {
   const response = await axiosInstance.get();
@@ -21,7 +21,7 @@ const todoSlice = createSlice({
       })
       .addCase(fetchAllTodos.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.items = action.payload; // Simpan data dari API ke state global
+        state.items = action.payload;
       })
       .addCase(fetchAllTodos.rejected, (state, action) => {
         state.status = "failed";
