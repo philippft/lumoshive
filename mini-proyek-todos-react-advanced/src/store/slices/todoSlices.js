@@ -22,8 +22,16 @@ export const updateTodo = createAsyncThunk("todos/updateTodo",
     const response = await axiosInstance.put(`/${id}`, {
       completed: newStatus,
     });
-    console.log("Berhasil di update: ", response.data);
+    // console.log("Berhasil di update: ", response.data);
     return { id, completed: newStatus };
+  }
+)
+
+export const deleteTodo = createAsyncThunk("todos/deleteTodo", 
+  async(id) => {
+    const response = await axiosInstance.delete(`/${id}`);
+    console.log("Delete berhasil: ", response);
+    return id;
   }
 )
 
@@ -51,12 +59,15 @@ const todoSlice = createSlice({
       .addCase(addTodos.fulfilled, (state, action) => {
         state.items.unshift(action.payload); 
       })
-      .addCase(updateTodo.fulfilled, (state, action) =>{
+      .addCase(updateTodo.fulfilled, (state, action) => {
         const index = state.items.findIndex((item) => item.id === action.payload.id);
 
         if(index !== -1) {
           state.items[index].completed = action.payload.completed
         }
+      })
+      .addCase(deleteTodo.fulfilled, (state, action) => {
+          state.items = state.items.filter((item) => item.id !== action.payload);
       })
   },
 });

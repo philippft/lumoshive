@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useDarkMode } from "../context/DarkModeContext";
-import { updateTodo } from "../store/slices/todoSlices";
+import { deleteTodo, updateTodo } from "../store/slices/todoSlices";
 
 export default function TodoCard ({ id, text, status }) {
     const { isDark } = useDarkMode();
@@ -46,7 +46,7 @@ export default function TodoCard ({ id, text, status }) {
           {text}
         </p>
 
-        <button className="p-1 rounded-md transition-colors group">
+        <button className="p-1 rounded-md transition-colors group" onClick={() => dispatch(deleteTodo(id))}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
