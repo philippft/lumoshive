@@ -12,9 +12,20 @@ export const addTodos = createAsyncThunk("todos/addTodos", async (todo) => {
     completed: false,
     userId: 1,
   });
-  console.log(response.data);
+  // console.log(response.data);
   return response.data;
 })
+
+export const updateTodo = createAsyncThunk("todos/updateTodo", 
+  async ({id, status}) => {
+    const newStatus = !status
+    const response = await axiosInstance.put(`/${id}`, {
+      completed: newStatus,
+    });
+    console.log("Berhasil di update: ", response.data);
+    return { id, completed: newStatus };
+  }
+)
 
 const todoSlice = createSlice({
   name: "todos",
@@ -39,6 +50,13 @@ const todoSlice = createSlice({
       })
       .addCase(addTodos.fulfilled, (state, action) => {
         state.items.unshift(action.payload); 
+      })
+      .addCase(updateTodo.fulfilled, (state, action) =>{
+        const index = state.items.findIndex((item) => item.id === action.payload.id);
+
+        if(index !== -1) {
+          state.items[index].completed = action.payload.completed
+        }
       })
   },
 });

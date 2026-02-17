@@ -10,9 +10,9 @@ import { useDarkMode } from "../context/DarkModeContext";
 export default function MainSection()  {
   const dispatch = useDispatch();
   const { isDark, toggleTheme } = useDarkMode();
-  // console.log(dispatch);
-
+  
   const { items } = useSelector((state) => state.todos);
+  // console.log(items[0].title);
 
   const totalTugas = items.length;
   const sudahSelesai = items.filter((todo) => todo.completed === true).length;
@@ -55,7 +55,7 @@ export default function MainSection()  {
       ) : (
         <div className="mt-4">
           {items.map((item) => (
-            <TodoCard key={item.id} text={item.title} status={item.completed} />
+            <TodoCard key={item.id} id={item.id} text={item.title} status={item.completed} />
           ))}
         </div>
       )}

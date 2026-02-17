@@ -1,8 +1,12 @@
+import { useDispatch } from "react-redux";
 import { useDarkMode } from "../context/DarkModeContext";
+import { updateTodo } from "../store/slices/todoSlices";
 
-export default function TodoCard ({ text, status }) {
-  // console.log(key)
+export default function TodoCard ({ id, text, status }) {
     const { isDark } = useDarkMode();
+    const dispatch = useDispatch();
+
+    // console.log(key);
     return (
       <article
         className={`flex items-start gap-4 w-full p-4 mt-4 border rounded-lg shadow-sm ${isDark 
@@ -15,6 +19,7 @@ export default function TodoCard ({ text, status }) {
       >
         <button
           className={`mt-1 min-w-[24px] h-6 w-6 border rounded-full transition-all flex items-center justify-center ${status ? "border-gray-200 bg-purple-500" : ""} ${isDark ? "border-[#4EA8DE] border-x " : ""}`}
+          onClick={() => dispatch(updateTodo({id, status}))}
         >
           {status && (
             <svg

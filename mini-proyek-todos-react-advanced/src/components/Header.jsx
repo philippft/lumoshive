@@ -2,7 +2,7 @@ import HeaderLogo from '../assets/LogoTodo.png'
 import { useDarkMode } from '../context/DarkModeContext';
 
 export default function Header () {
-    const { isDark, toggleTheme } = useDarkMode();
+    const { isDark } = useDarkMode();
 
     return (
       <header
