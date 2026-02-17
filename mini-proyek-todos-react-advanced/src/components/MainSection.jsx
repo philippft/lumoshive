@@ -4,9 +4,12 @@ import TodoCard from "./TodoCard";
 import { useEffect } from "react";
 import { fetchAllTodos } from "../store/slices/todoSlices";
 import { useDispatch, useSelector } from "react-redux";
+import { Sun, Moon } from "lucide-react";
+import { useDarkMode } from "../context/DarkModeContext";
 
-export default function MainSection() {
+export default function MainSection()  {
   const dispatch = useDispatch();
+  const { isDark, toggleTheme } = useDarkMode();
   // console.log(dispatch);
 
   const { items } = useSelector((state) => state.todos);
@@ -20,8 +23,17 @@ export default function MainSection() {
   }, [dispatch]);
 
   return (
-    <main className="container mx-auto max-w-184 px-4">
+    <main className="container mx-auto max-w-184 px-4 min-h-screen">
       <Search />
+
+      <button
+        onClick={toggleTheme}
+        className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+        aria-label="Toggle dark mode"
+      >
+        {isDark ? <Moon size={22} className="text-gray-300" /> : <Sun size={22} />}
+      </button>
+
       <div className="flex justify-between items-center mt-12 mb-6">
         <div className="flex items-center gap-2">
           <span className="text-blue-400 font-bold text-sm">Belum Selesai</span>
@@ -38,12 +50,15 @@ export default function MainSection() {
         </div>
       </div>
 
-      <div className="mt-4">
-        {items.map((item) => (
-          <TodoCard key={item.id} text={item.title} status={item.completed}/>
-        ))}
-      </div>
-      {/* <NoTask /> */}
+      {items.length == 0 ? (
+        <NoTask isDark={isDark} />
+      ) : (
+        <div className="mt-4">
+          {items.map((item) => (
+            <TodoCard key={item.id} text={item.title} status={item.completed} />
+          ))}
+        </div>
+      )}
     </main>
   );
 }

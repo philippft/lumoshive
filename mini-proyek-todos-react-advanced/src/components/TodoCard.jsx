@@ -1,13 +1,20 @@
-import Check from '../assets/check.png';
+import { useDarkMode } from "../context/DarkModeContext";
 
 export default function TodoCard ({ text, status }) {
   // console.log(key)
+    const { isDark } = useDarkMode();
     return (
       <article
-        className={`flex items-start gap-4 w-full p-4 mt-4 border rounded-lg shadow-sm ${status ? "bg-gray-200 border-gray-200" : ""}`}
+        className={`flex items-start gap-4 w-full p-4 mt-4 border rounded-lg shadow-sm ${isDark 
+      ? "bg-[#262626] border-[#333333] text-[#F2F2F2]"
+      : "bg-white border-gray-200 text-gray-800" 
+    } 
+    ${status && isDark ? "opacity-60 bg-[#1A1A1A]" : ""} 
+    ${status && !isDark ? "bg-gray-100 border-gray-300" : ""}
+  `}
       >
         <button
-          className={`mt-1 min-w-[24px] h-6 w-6 border rounded-full transition-all flex items-center justify-center ${status ? "border-gray-200 bg-purple-500" : ""}`}
+          className={`mt-1 min-w-[24px] h-6 w-6 border rounded-full transition-all flex items-center justify-center ${status ? "border-gray-200 bg-purple-500" : ""} ${isDark ? "border-[#4EA8DE] border-x " : ""}`}
         >
           {status && (
             <svg
