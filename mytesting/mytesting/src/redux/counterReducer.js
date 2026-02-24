@@ -1,0 +1,26 @@
+// Initial state
+const initialState = {
+  count: 0,
+}
+
+// Reducer
+const counterReducer = (state = initialState, action) => {
+  // tambahan buat debugging
+  console.log("reducer", action.type)
+  switch (action.type) {
+    case "INCREMENT":
+      return {
+        ...state,
+        count: state.count + 1,
+      }
+    case "DECREMENT":
+      return {
+        ...state,
+        count: state.count - 1,
+      }
+    default:
+      return state
+  }
+}
+
+export default counterReducer

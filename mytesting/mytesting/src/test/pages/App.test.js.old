@@ -1,0 +1,94 @@
+/* eslint-disable no-undef */
+// import '@testing-library/jest-dom'
+
+import { render, screen, fireEvent } from '@testing-library/react'
+// render > untuk menampilkan komponen ke virtual DOM / fake DOM testing
+// screen > untuk mengakses elemen di virtual DOM / fake DOM testing
+// fireEvent > untuk mensimulasikan aksi user (klick, input, dll)
+
+import App from '../../App'
+
+
+describe('App Component', () => {
+  //  1: memastikan lgo Vite dan React muncul
+  test('renders Vite and React logos', () => {
+
+    // Render komponen ke vitual DOM testing / fake DOM testing
+    render(<App />)
+
+    // Mencari gambarnya berdasarkan attribute alt
+    const viteLogo = screen.getByAltText('Vite logo')
+    const reactLogo = screen.getByAltText('React logo')
+
+    // Memastikan kedua logo benar-benar ada di document
+    expect(viteLogo).toBeInTheDocument()
+    expect(reactLogo).toBeInTheDocument()
+
+  })
+
+  // 2: memastikan nilai awal count adalah 0
+  test('initial count is 0', () => {
+
+    // Render komponen ke vitual DOM testing / fake DOM testing
+    render(<App />)
+
+    // Ambil element button berdasarkan role HTML
+    const button = screen.getByRole('button')
+
+    // Pastikan test di dalam button adalah "count is 0"
+    expect(button).toHaveTextContent('count is 0')
+  })
+
+  // 3: memastikan count bertambah ketika button di klik
+  test('count is incremented on button click', () => {
+
+    // Render komponen ke vitual DOM testing / fake DOM testing
+    render(<App />)
+
+    // Ambil element button berdasarkan role HTML
+    const button = screen.getByRole('button')
+
+    // Simulasi klik button
+    fireEvent.click(button)
+
+    // Pastikan test di dalam button adalah "count is 1"
+    expect(button).toHaveTextContent('count is 1')
+
+    // // Simulasi klik button kedua
+    // fireEvent.click(button)
+    // // Pastikan test di dalam button adalah "count is 2"
+    // expect(button).toHaveTextContent('count is 2')
+
+  })
+
+  //  4: memastikan test instruksi "Edi ..."  muncul
+  test('instructions are visible', () => {
+
+    // Render komponen ke vitual DOM testing / fake DOM testing
+    render(<App />)
+
+    // mencari text menggunakan regex
+    // /Edit/i artinya cari kata "Edit dan ignore huruf besar kecil"
+    const instructionsText = screen.getByText(/Edit/i)
+
+    // Pastikan text tersebut ada di document
+    expect(instructionsText).toBeInTheDocument()
+  })
+
+
+  // 5: memastikan text dokumentasi muncul
+  test('documentation link is visible', () => {
+
+    // Render komponen ke vitual DOM testing / fake DOM testing
+    render(<App />)
+
+    // Mencari text panjanga menggunakn regex (ignore case)
+    const readTheDocsText = screen.getByText(
+      /Click on the Vite and React logos to learn more/i
+    )
+
+    // Pastikan text tersebut ada di document
+    expect(readTheDocsText).toBeInTheDocument()
+
+  })
+})
