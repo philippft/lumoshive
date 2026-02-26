@@ -60,14 +60,17 @@ const todoSlice = createSlice({
         state.items.unshift(action.payload); 
       })
       .addCase(updateTodo.fulfilled, (state, action) => {
-        const index = state.items.findIndex((item) => item.id === action.payload.id);
+          const { id, completed } = action.payload;
 
-        if(index !== -1) {
-          state.items[index].completed = action.payload.completed
-        }
+          const todo = state.items.find((t) => t.id === id);
+          if (todo) {
+            todo.completed = completed;
+          }
       })
       .addCase(deleteTodo.fulfilled, (state, action) => {
-          state.items = state.items.filter((item) => item.id !== action.payload);
+            state.items = state.items.filter(
+              (todo) => todo.id !== action.payload,
+            );
       })
   },
 });

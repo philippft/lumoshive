@@ -1,8 +1,8 @@
 import NoTask from "./NoTask";
 import Search from "./Search";
 import TodoCard from "./TodoCard";
-import { useEffect } from "react";
-import { fetchAllTodos } from "../store/slices/todoSlices";
+import { useEffect, useMemo, useCallback } from "react";
+import { deleteTodo, fetchAllTodos, updateTodo } from "../store/slices/todoSlices";
 import { useDispatch, useSelector } from "react-redux";
 import { Sun, Moon } from "lucide-react";
 import { useDarkMode } from "../context/DarkModeContext";
@@ -14,9 +14,40 @@ export default function MainSection()  {
   const { items } = useSelector((state) => state.todos);
   // console.log(items[0].title);
 
-  const totalTugas = items.length;
-  const sudahSelesai = items.filter((todo) => todo.completed === true).length;
-  const belumSelesai = items.filter((todo) => todo.completed === false).length;
+  const { totalTugas, sudahSelesai, belumSelesai } = useMemo(() => {
+    const total = items.length;
+    const selesai = items.filter((todo) => todo.completed === true).length;
+    const belum = total - selesai;
+
+    return {
+      totalTugas: total,
+      sudahSelesai: selesai,
+      belumSelesai: belum,
+    };
+  }, [items]);
+  
+
+  const handleToggleTheme = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
+
+  const handleDelete = useCallback(
+    (id) => {
+      dispatch(deleteTodo(id));
+    },
+    [dispatch],
+  );
+
+  const handleStatus = useCallback(
+    (id, status) => {
+      dispatch(updateTodo({id, status}));
+    },
+    [dispatch],
+  );
+
+  // const totalTugas = items.length;
+  // const sudahSelesai = items.filter((todo) => todo.completed === true).length;
+  // const belumSelesai = items.filter((todo) => todo.completed === false).length;
 
   useEffect(() => {
     dispatch(fetchAllTodos());
@@ -27,7 +58,7 @@ export default function MainSection()  {
       <Search />
 
       <button
-        onClick={toggleTheme}
+        onClick={handleToggleTheme}
         className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition"
         aria-label="Toggle dark mode"
       >
@@ -55,7 +86,7 @@ export default function MainSection()  {
       ) : (
         <div className="mt-4">
           {items.map((item) => (
-            <TodoCard key={item.id} id={item.id} text={item.title} status={item.completed} />
+            <TodoCard key={item.id} id={item.id} text={item.title} status={item.completed} handleStatus={handleStatus} handleDelete={handleDelete} />
           ))}
         </div>
       )}
