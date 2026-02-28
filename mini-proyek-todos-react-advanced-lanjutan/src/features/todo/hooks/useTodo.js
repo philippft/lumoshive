@@ -5,15 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 export const useTodo = () => {
     const dispatch = useDispatch();
 
-    const { items, loading, error } = useSelector((state) => state.todos);
+    const { items, status, error } = useSelector((state) => state.todos);
 
     useEffect(() => {
+      if (status === "idle") {
         dispatch(fetchAllTodos());
-    }, [dispatch]);
+      }
+    }, [status, dispatch]);
 
     return {
         items,
-        loading,
+        status: status === "loading",
         error,
         addTodo: (todo) => dispatch(addTodos(todo)),
         updateTodo: (id, status) => dispatch(updateTodo(id, status)),

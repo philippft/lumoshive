@@ -6,22 +6,22 @@ import { useDarkMode } from "../../../context/DarkModeContext";
 
 export default function TodoListPage() {
   const { isDark } = useDarkMode();
-  const { items, loading, error, addTodo, updateTodo, deleteTodo } = useTodo();
+  const { items, status, error, addTodo, updateTodo, deleteTodo } = useTodo();
   
-  // const MainSection = lazy(() => import("../components/MainSection"));
+  const MainSection = lazy(() => import("../components/MainSection"));
 
   return (
     <div className={`${isDark ? "bg-[#1A1A1A]" : ""}`}>
       <Header />
 
-      {/* <Suspense
+      <Suspense
         fallback={
           <div className="flex justify-center items-center h-40 text-blue-400 font-bold italic animate-pulse">
             Memuat Komponen...
           </div>
         }
-      > */}
-        {loading ? (
+      >
+        {status === "loading" ? (
           <div className="flex justify-center items-center h-40 text-blue-400 font-bold">
             Memuat Data...
           </div>
@@ -33,7 +33,7 @@ export default function TodoListPage() {
             deleteTodo={deleteTodo}
           />
         )}
-      {/* </Suspense> */}
+      </Suspense>
 
       {error && <p className="text-red-500 text-center p-4">{error}</p>}
     </div>

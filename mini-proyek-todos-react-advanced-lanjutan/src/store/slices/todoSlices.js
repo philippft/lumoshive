@@ -42,7 +42,11 @@ const todoSlice = createSlice({
     status: "idle",
     error: null,
   },
-  reducers: {},
+  reducers: {
+    removeTodo: (state, action) => {
+      state.items = state.items.filter((todo) => todo.id !== action.payload);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllTodos.pending, (state) => {
@@ -57,22 +61,21 @@ const todoSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(addTodos.fulfilled, (state, action) => {
-        state.items.unshift(action.payload); 
+        state.items.unshift(action.payload);
       })
       .addCase(updateTodo.fulfilled, (state, action) => {
-          const { id, completed } = action.payload;
+        const { id, completed } = action.payload;
 
-          const todo = state.items.find((t) => t.id === id);
-          if (todo) {
-            todo.completed = completed;
-          }
+        const todo = state.items.find((t) => t.id === id);
+        if (todo) {
+          todo.completed = completed;
+        }
       })
       .addCase(deleteTodo.fulfilled, (state, action) => {
-            state.items = state.items.filter(
-              (todo) => todo.id !== action.payload,
-            );
-      })
+        state.items = state.items.filter((todo) => todo.id !== action.payload);
+      });
   },
 });
 
+export const { removeTodo } = todoSlice.actions;
 export default todoSlice.reducer;
