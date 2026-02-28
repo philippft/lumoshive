@@ -1,14 +1,13 @@
-import './App.css'
-import TodoListPage from './Page/TodoListPage'
-import Layout from './shared/layouts/Layout'
+import "./App.css";
+import TodoListPage from "./features/todo/Page/TodoListPage";
+import Layout from "./shared/layouts/Layout";
 
 function App() {
-
   return (
     <Layout>
-      <TodoListPage/>
+      <TodoListPage />
     </Layout>
-  )
+  );
 }
 
-export default App
+export default App;

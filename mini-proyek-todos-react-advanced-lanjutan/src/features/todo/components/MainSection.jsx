@@ -1,18 +1,13 @@
 import NoTask from "./NoTask";
 import Search from "./Search";
 import TodoCard from "./TodoCard";
-import { useEffect, useMemo, useCallback } from "react";
-import { deleteTodo, fetchAllTodos, updateTodo } from "../store/slices/todoSlices";
-import { useDispatch, useSelector } from "react-redux";
 import { Sun, Moon } from "lucide-react";
-import { useDarkMode } from "../context/DarkModeContext";
+import { useMemo, useCallback } from "react";
+import { useDarkMode } from "../../../context/DarkModeContext";
 
-export default function MainSection()  {
-  const dispatch = useDispatch();
+export default function MainSection({items=[], addTodo, updateTodo, deleteTodo}) {
+
   const { isDark, toggleTheme } = useDarkMode();
-  
-  const { items } = useSelector((state) => state.todos);
-  // console.log(items[0].title);
 
   const { totalTugas, sudahSelesai, belumSelesai } = useMemo(() => {
     const total = items.length;
@@ -25,7 +20,6 @@ export default function MainSection()  {
       belumSelesai: belum,
     };
   }, [items]);
-  
 
   const handleToggleTheme = useCallback(() => {
     toggleTheme();
@@ -33,36 +27,37 @@ export default function MainSection()  {
 
   const handleDelete = useCallback(
     (id) => {
-      dispatch(deleteTodo(id));
+      deleteTodo(id);
     },
-    [dispatch],
+    [deleteTodo],
   );
 
   const handleStatus = useCallback(
     (id, status) => {
-      dispatch(updateTodo({id, status}));
+      updateTodo({ id, status });
     },
-    [dispatch],
+    [updateTodo],
   );
 
   // const totalTugas = items.length;
   // const sudahSelesai = items.filter((todo) => todo.completed === true).length;
   // const belumSelesai = items.filter((todo) => todo.completed === false).length;
 
-  useEffect(() => {
-    dispatch(fetchAllTodos());
-  }, [dispatch]);
 
   return (
     <main className="container mx-auto max-w-184 px-4 min-h-screen">
-      <Search />
+      <Search addTodo= {addTodo}/>
 
       <button
         onClick={handleToggleTheme}
         className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition"
         aria-label="Toggle dark mode"
       >
-        {isDark ? <Moon size={22} className="text-gray-300" /> : <Sun size={22} />}
+        {isDark ? (
+          <Moon size={22} className="text-gray-300" />
+        ) : (
+          <Sun size={22} />
+        )}
       </button>
 
       <div className="flex justify-between items-center mt-12 mb-6">
@@ -86,7 +81,14 @@ export default function MainSection()  {
       ) : (
         <div className="mt-4">
           {items.map((item) => (
-            <TodoCard key={item.id} id={item.id} text={item.title} status={item.completed} handleStatus={handleStatus} handleDelete={handleDelete} />
+            <TodoCard
+              key={item.id}
+              id={item.id}
+              text={item.title}
+              status={item.completed}
+              handleStatus={handleStatus}
+              handleDelete={handleDelete}
+            />
           ))}
         </div>
       )}

@@ -1,4 +1,4 @@
-import { useDarkMode } from "../context/DarkModeContext";
+import { useDarkMode } from "../../../context/DarkModeContext";
 import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
@@ -10,8 +10,8 @@ export default function ThemeToggle() {
       className="p-2 rounded-lg bg-gray-200 dark:bg-gray-800 transition-all"
     >
       {isDark ? (
-          <Moon className="text-blue-600" size={20} />
-        ) : (
+        <Moon className="text-blue-600" size={20} />
+      ) : (
         <Sun className="text-yellow-400" size={20} />
       )}
     </button>

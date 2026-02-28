@@ -1,4 +1,4 @@
-import ClipBoard from "../assets/ClipBoard.png";
+import ClipBoard from "../../../assets/ClipBoard.png";
 
 export default function NoTask({ isDark }) {
   return (

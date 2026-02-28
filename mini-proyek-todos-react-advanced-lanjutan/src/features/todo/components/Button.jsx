@@ -1,4 +1,4 @@
-import Plus from '../assets/plus.svg';
+import Plus from '../../../assets/plus.svg';
 
 
 export default function Button ({ className, text, onClick, tambah, }) {
